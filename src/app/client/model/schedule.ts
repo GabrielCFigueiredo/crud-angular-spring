@@ -1,7 +1,7 @@
 export interface Schedule {
   id: number;
-  name: String;
-  date: String;
+  nome: String;
+  date: Date;
   price: number;
   category: String;
   payment: String;

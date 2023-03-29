@@ -1,3 +1,20 @@
 .tolbar {
   background-color: #e2c3c6;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.botton {
+  background-color: #f4a1b5;
+}
+
+.botton-card-edit {
+  color: #000000;
+
+}
+
+.botton-card-delete {
+  color: #f5061d;
+
 }

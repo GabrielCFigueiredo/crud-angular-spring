@@ -1,0 +1,11 @@
+[
+  {
+    "id": 1,
+    "name": "Mariana",
+    "date": "2002/02/31",
+    "price": 340.0,
+    "category": "maquiagem",
+    "payment": "Pix",
+    "description": "Maquiagem de casamento"
+  }
+]

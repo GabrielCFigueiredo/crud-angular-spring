@@ -1,25 +1,27 @@
 import { Schedule } from './../model/schedule';
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http'
+import { first } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ClientService {
 
-  constructor(private httpClient: HttpClient) { }
+  private readonly API = "api/usuarios"
 
-  list(): Schedule[] {
-    return [
-      {
-        id: 1,
-        name: 'Mariana',
-        date: '2002/02/31',
-        price: 340.0,
-        category: 'maquiagem',
-        payment: 'Pix',
-        description: 'Maquiagem de casamento',
-      },
-    ]
+  constructor(
+    private httpClient: HttpClient,
+    
+
+    ) { }
+
+  list() {
+    return this.httpClient.get<Schedule[]>(this.API).pipe(first())
+  }
+
+  save(record: Schedule) {
+
+    return this.httpClient.post<Schedule>(this.API, record).pipe(first());
   }
 }

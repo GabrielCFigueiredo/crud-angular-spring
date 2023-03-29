@@ -1,6 +1,8 @@
 import { ClientService } from './../services/client.service';
 import { Schedule } from './../model/schedule';
 import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-client',
@@ -8,26 +10,36 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./client.component.css'],
 })
 export class ClientComponent implements OnInit {
-  schedule: Schedule[] = [];
+  schedule: Observable<Schedule[]>
 
 
 
   displayedColumns = [
-    'name',
+    'nome',
     'date',
     'price',
     'category',
     'payment',
     'description',
+    'actions'
   ];
   clickedRows: any;
 
-  constructor(private clientService: ClientService) {
+  constructor(
+    private clientService: ClientService,
+    private router: Router,
+    private route: ActivatedRoute
+    ) {
 
     this.schedule = this.clientService.list();
   }
 
   ngOnInit(): void {
+
+  }
+
+  onAdd() {
+    this.router.navigate(['new'], {relativeTo: this.route})
 
   }
 

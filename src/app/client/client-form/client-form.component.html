@@ -1,0 +1,48 @@
+<mat-card>
+  <mat-card-content>
+  <mat-toolbar class="tolbar">Cadastrar Cliente</mat-toolbar>
+    <form class="form-container" [formGroup]="form">
+      <mat-form-field class="input">
+        <mat-label>Nome</mat-label>
+        <input formControlName="nome" matInput />
+      </mat-form-field>
+      <mat-form-field class="input">
+        <mat-label>Data de Cadastro</mat-label>
+        <input matInput [matDatepicker]="picker" formControlName="date" name="date">
+        <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+      </mat-form-field>
+      <mat-form-field class="input">
+        <mat-label>Selecione o Procedimento</mat-label>
+        <mat-select formControlName="category">
+          <mat-option value="MASSAGEMMODELADORA">MASSAGEM MODELADORA</mat-option>
+          <mat-option value="MASSAGEMRELAXANTE">MASSAGEM RELAXANTE</mat-option>
+          <mat-option value="MAQUIAGEM">MAQUIAGEM</mat-option>
+          <mat-option value="DRENAGEM">DRENAGEM</mat-option>
+          <mat-option value="LIMPEZA">LIMPEZA DE PELE</mat-option>
+        </mat-select>
+      </mat-form-field>
+      <mat-form-field class="input">
+        <mat-label>Preço</mat-label>
+        <input formControlName="price" matInput />
+      </mat-form-field>
+      <mat-form-field class="input">
+        <mat-label>Selecione o Pagamneto</mat-label>
+        <mat-select formControlName="payment">
+          <mat-option value="PIX">PIX</mat-option>
+          <mat-option value="CARTAODECREDITO">CARTÃO DE CREDITO</mat-option>
+          <mat-option value="CARTAODEDEBITO">CARTÃO DE DEBITO</mat-option>
+          <mat-option value="AVISTA">A VISTA</mat-option>
+        </mat-select>
+      </mat-form-field>
+      <mat-form-field class="input">
+        <mat-label>Descrição</mat-label>
+        <textarea formControlName="description"  matInput></textarea>
+      </mat-form-field>
+    </form>
+  </mat-card-content>
+  <mat-card-actions>
+    <button type="submit"  mat-raised-button color="accent" (click)="onSubmit()">Salvar</button>
+    <button mat-raised-button (click)="onCancel()">Cancelar</button>
+  </mat-card-actions>
+</mat-card>
